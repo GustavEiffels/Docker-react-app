@@ -11,7 +11,7 @@ services:
       dockerfile: Dockerfile.dev
     # port : portMapping  => localPort : Container Port
     ports:
-      - '3000:3000'
+      - '80:3000'
     
     # local Machine 에 있는 파일들 Mapping 
     volumes:
