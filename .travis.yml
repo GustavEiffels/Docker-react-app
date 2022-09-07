@@ -23,13 +23,13 @@ deploy:
   provider: elasticbeanstalk
   region: "ap-northeast-2"
   app: "docker-react-app"
-  env: "Dockerreactapp-env"
+  env: "DockerReactApp-env"
   bucket_name: "elasticbeanstalk-ap-northeast-2-187582693911"
   bucket_path: "docker-react-app"
   on:
     # master branch 에 push 가 될 때에만 배포
     branch: master
-    
+
   # Access Key 설정 
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key: $AWS_SECRET_ACCESS_KEY
