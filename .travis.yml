@@ -17,6 +17,20 @@ before_install:
 script:
   - docker run -e CI=true soldiersung/react-app npm run test -- --coverage
 
-# 수행 후 실행할 명령 
-after_success:
-  - echo "테스트가 성공적으로 완료되었습니다."
+
+#############  배포  ############# 
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-northeast-2"
+  app: "docker-react-app"
+  env: "Dockerreactapp-env"
+  bucket_name: "elasticbeanstalk-ap-northeast-2-187582693911"
+  bucket_path: "docker-react-app"
+  on:
+    # master branch 에 push 가 될 때에만 배포
+    branch: master
+# Access Key 설정 
+access_key_id: $AWS_ACCESS_KEY
+secret_access_key: $AWS_SECRET_ACCESS_KEY
+
+   
