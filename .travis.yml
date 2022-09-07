@@ -1,0 +1,22 @@
+# 관리자 권한 찾기
+sudo: required
+
+# 언어 선택 
+language: generic
+
+# docker 환경에서 실행
+services:
+  - docker
+
+# Script 를 적용하기 위한 환경 설정 
+before_install:
+  - echo "도커 파일 생성이 시작됩니다."
+  - docker build -t soldiersung/react-app -f Dockerfile.dev .
+
+# 실행할 Script 작성 
+script:
+  - docker run -e CI=true soldiersung/react-app npm run test -- --coverage
+
+# 수행 후 실행할 명령 
+after_success:
+  - echo "테스트가 성공적으로 완료되었습니다."
