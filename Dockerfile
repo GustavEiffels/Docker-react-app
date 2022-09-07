@@ -10,4 +10,7 @@ RUN npm run build
 
 FROM nginx
 # builder 라는 stage 에 옴
+
+# port Mapping 
+EXPOSE 80
 COPY --from=builder  /usr/src/app/build /usr/share/nginx/html
